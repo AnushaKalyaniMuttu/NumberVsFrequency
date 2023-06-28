@@ -1,0 +1,28 @@
+package com.bean;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapCal {
+
+	public static void main (String [] args) {
+		int[] arr= {1,2,1,3,4,5,6,7,2,3,1,1,1};//n=9
+		Map<Integer, Integer> numberVsFrequency=new HashMap<>();
+		
+		for(int i=0;i<arr.length;i++) {
+			if(numberVsFrequency.containsKey(arr[i])){
+				numberVsFrequency.put(arr[i], numberVsFrequency.get(arr[i])+1);
+			}else
+			{
+				numberVsFrequency.put(arr[i], 1);
+			}
+
+			
+		}
+		for(Map.Entry<Integer, Integer> hash:numberVsFrequency.entrySet()) {
+		if(hash.getValue()>arr.length/3) 
+			System.out.println(hash.getKey()+" "+hash.getValue());
+		
+		}
+	}
+}
